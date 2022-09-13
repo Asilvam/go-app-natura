@@ -15,10 +15,10 @@ func main() {
 	port := os.Getenv("PORT")
 	app := fiber.New()
 	app.Get("/", func(ctx *fiber.Ctx) error {
-		return ctx.SendString("Hello World!")
+		return ctx.SendString("Hello World GO!")
 	})
 
-	app.Get("/user", handleUser)
+	app.Get("/users", handleUser)
 
 	app.Listen(":" + port)
 }
