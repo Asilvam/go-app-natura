@@ -3,6 +3,7 @@ package main
 import (
 	user_service "github.com/Asilvam/go-app-natura.git/services/user.service"
 	"github.com/gofiber/fiber/v2"
+	"os"
 )
 
 func handleUser(c *fiber.Ctx) error {
@@ -11,7 +12,7 @@ func handleUser(c *fiber.Ctx) error {
 }
 
 func main() {
-
+	port := os.Getenv("PORT")
 	app := fiber.New()
 	app.Get("/", func(ctx *fiber.Ctx) error {
 		return ctx.SendString("Hello World!")
@@ -19,5 +20,5 @@ func main() {
 
 	app.Get("/user", handleUser)
 
-	app.Listen(":3000")
+	app.Listen(port)
 }
