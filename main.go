@@ -20,5 +20,5 @@ func main() {
 
 	app.Get("/user", handleUser)
 
-	app.Listen(port)
+	app.Listen(":" + port)
 }
