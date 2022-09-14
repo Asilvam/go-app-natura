@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
@@ -12,10 +11,10 @@ import (
 
 func GetCollection(collection string) *mongo.Collection {
 
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	//err := godotenv.Load()
+	//if err != nil {
+	//	log.Fatal("Error loading .env file")
+	//}
 	uriMongodb := os.Getenv("URI_MONGODB")
 	database := os.Getenv("DATABASE")
 

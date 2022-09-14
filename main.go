@@ -4,6 +4,7 @@ import (
 	user_service "github.com/Asilvam/go-app-natura.git/services/user.service"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"log"
 	"os"
 )
 
@@ -14,6 +15,10 @@ func handleUser(c *fiber.Ctx) error {
 
 func main() {
 	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	app := fiber.New()
 
 	app.Use(logger.New())
